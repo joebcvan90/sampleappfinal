@@ -11,6 +11,7 @@ class UsersController < ApplicationController
   def create
   	@user = User.new(user_params)
   	if @user.save
+      log_in @user
       flash[:success] = "마이크로포스트 가입 성공!"
   		redirect_to @user
   	else
